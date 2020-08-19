@@ -1,4 +1,8 @@
-import { observable, action, computed } from 'mobx';
+import {
+    observable,
+    action,
+    computed
+} from 'mobx';
 import shortid from 'shortid';
 
 class Todo {
@@ -9,9 +13,19 @@ class Todo {
         this.todo = todo;
     }
 }
-
 class TodoListStore {
     @observable todos = [new Todo('吃饭')];
+    @observable todo = "";
+
+    @action handleChange = e => {
+        this.todo = e.target.value;
+    }
+    @action handleKeyUp = e => {
+        if (e.keyCode === 13) {
+            this.todos.unshift(new Todo(this.todo));
+            this.todo = "";
+        }
+    }
     @action addTodo = todo => {
         this.todos.unshift(new Todo(todo));
     };

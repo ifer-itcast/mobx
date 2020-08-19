@@ -1,21 +1,10 @@
-import {
-    observable,
-    action
-} from 'mobx';
-
+import { observable, flow } from 'mobx';
 class JokeStore {
     @observable jokes = [];
-    fetchJokes = () => {
-        fetch('https://autumnfish.cn/api/joke/list?num=3').then(res => res.json()).then(data => {
-            this.saveJokes(data.jokes);
-        });
-    };
-
-    // Modifying the observed data needs to be decorated with action
-    @action
-    saveJokes = data => {
-        this.jokes = data;
-    }
+    fetchJokes = flow(function* () {
+        const response = yield fetch("https://autumnfish.cn/api/joke/list?num=3")
+        const json = yield response.json();
+        this.jokes = json.jokes;
+    });
 }
-
 export default new JokeStore();

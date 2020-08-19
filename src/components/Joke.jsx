@@ -14,9 +14,7 @@ class Joke extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.props.JokeStore.fetchJokes}>
-                    Get a joke
-                </button>
+                <button onClick={() => this.props.JokeStore.fetchJokes()}>Get a joke</button>
                 <ul>
                     {this.renderJokes()}
                 </ul>

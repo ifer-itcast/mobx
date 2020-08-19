@@ -5,19 +5,35 @@ import { observer, inject } from "mobx-react";
 @observer
 class Joke extends Component {
     renderJokes = () => {
-        return this.props.JokeStore.jokes.map((item, index) =>
-            <li key={index}>
-                {item}
-            </li>
+        const jokes = this.props.JokeStore.jokes;
+        if (!jokes.length) return null;
+        return (
+            <ul>
+                {jokes.map((item, index) =>
+                    <li key={index}>
+                        {item}
+                    </li>
+                )}
+            </ul>
         );
     };
     render() {
+        const JokeStore = this.props.JokeStore;
+
+        let data = null;
+        if (JokeStore.error) {
+            data = (<div>{JokeStore.error}</div>);
+        } else if (JokeStore.loading) {
+            data = <div>loading...</div>;
+        } else {
+            data = this.renderJokes();
+        }
         return (
             <div>
-                <button onClick={() => this.props.JokeStore.fetchJokes()}>Get a joke</button>
-                <ul>
-                    {this.renderJokes()}
-                </ul>
+                <button onClick={() => JokeStore.fetchJokes()}>
+                    Get a joke
+                </button>
+                {data}
             </div>
         );
     }

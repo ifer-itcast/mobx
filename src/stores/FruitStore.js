@@ -1,14 +1,18 @@
-import { observable, autorun, toJS, isObservableObject, isObservableArray } from 'mobx';
-
+import { observable, action, computed } from 'mobx';
 class FruitStore {
     @observable fruits = ['apple', 'orange'];
+    @action addFruit = fruit => {
+        this.fruits.unshift(fruit);
+    };
+    /* getFruits = () => {
+        return this.fruits.join(',');
+    }; */
+    @computed get getFruits() {
+        return this.fruits.join(',');
+    }
+    @computed get getCount() {
+        return this.fruits.length;
+    }
 }
 const store = window.store = new FruitStore();
 export default store;
-
-autorun(() => {
-    console.log(store.fruits); // Proxy {0: "apple", 1: "orange", Symbol(mobx administration): ObservableArrayAdministration}
-    console.log(toJS(store.fruits)); // ["apple", "orange"]
-    console.log(isObservableObject(store)); // 可被观测的对象
-    console.log(isObservableArray(store.fruits)); // 可被观测的数组
-});

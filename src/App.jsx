@@ -17,8 +17,12 @@ class App extends Component {
                     <button>添加</button>
                 </form>
                 <div>
-                    <p>数据：{this.props.FruitStore.getFruits}</p>
-                    <p>长度：{this.props.FruitStore.getCount}</p>
+                    <p>
+                        数据：{this.props.FruitStore.getFruits}
+                    </p>
+                    <p>
+                        长度：{this.props.FruitStore.getCount}
+                    </p>
                 </div>
             </div>
         );

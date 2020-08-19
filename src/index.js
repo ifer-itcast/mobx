@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 
-import BirdStore from './stores/BirdStore';
-
-ReactDOM.render(<div>hello</div>, document.querySelector('#root'));
+import FruitStore from './stores/FruitStore';
+ReactDOM.render(<App FruitStore={FruitStore}/>, document.querySelector('#root'));

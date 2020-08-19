@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Joke from './components/Joke';
+import TodoList from './components/TodoList';
 
 class App extends Component {
     render() {
         return (
             <div>
-                <Joke/>
+                <TodoList/>
             </div>
         );
     }

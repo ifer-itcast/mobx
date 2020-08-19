@@ -1,7 +1,7 @@
 import FruitStore from './FruitStore';
 import FriendStore from './FriendStore';
 import JokeStore from './JokeStore';
-import Test from './Test';
+import TodoListStore from './TodoListStore';
 
 /* class Store {
     constructor() {
@@ -15,5 +15,5 @@ export default {
     FruitStore,
     FriendStore,
     JokeStore,
-    Test
+    TodoListStore
 };

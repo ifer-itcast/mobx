@@ -1,5 +1,6 @@
 import FruitStore from './FruitStore';
 import FriendStore from './FriendStore';
+import JokeStore from './JokeStore';
 
 /* class Store {
     constructor() {
@@ -11,5 +12,6 @@ export default new Store(); */
 
 export default {
     FruitStore,
-    FriendStore
+    FriendStore,
+    JokeStore
 };

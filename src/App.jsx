@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import TodoList from './components/TodoList';
+import Message from './components/Message';
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <TodoList/>
+            <div className="container mt-3">
+                <Message/>
             </div>
         );
     }

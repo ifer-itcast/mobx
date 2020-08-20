@@ -1,0 +1,23 @@
+.my-msg .my-msg-top button{
+    width: 100%;
+}
+
+.my-msg .my-msg-con div:nth-child(1) .card {
+    background-color: #007BFF;
+}
+
+.my-msg .my-msg-con div:nth-child(2) .card {
+    background-color: #28A745;
+}
+
+.my-msg .my-msg-con .color-white {
+    color: #fff;
+}
+
+.my-msg .my-msg-bot .list-group-item {
+    border: none;
+    border-radius: 0;
+}
+.my-msg .my-msg-bot .list-group-item:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}

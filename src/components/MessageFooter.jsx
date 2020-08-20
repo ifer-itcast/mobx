@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import { inject, observer } from 'mobx-react';
+import Msg from './Msg';
 
+@inject('MessageStore')
+@observer
 class MessageFooter extends Component {
     render() {
         return (
@@ -23,8 +27,9 @@ class MessageFooter extends Component {
                     </svg>Reviews
                 </div>
                 <ul className="list-group">
-                    <li className="list-group-item">Cras justo odio</li>
-                    <li className="list-group-item">Cras justo odio</li>
+                    {
+                        this.props.MessageStore.msgs.map(item => <Msg key={item.id} item={item}/>)
+                    }
                 </ul>
             </div>
         );

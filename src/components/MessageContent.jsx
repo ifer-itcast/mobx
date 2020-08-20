@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import { observer, inject } from "mobx-react";
 
-export default class MessageContent extends Component {
+@inject("MessageStore")
+@observer
+class MessageContent extends Component {
     render() {
+        const { getCount, getAverage } = this.props.MessageStore;
         return (
             <div className="row mt-3  my-msg-con">
                 <div className="col-sm">
@@ -25,7 +29,9 @@ export default class MessageContent extends Component {
                                 </svg>
                             </div>
                             <div className="float-right color-white text-right">
-                                <p>2</p>
+                                <p>
+                                    {getCount}
+                                </p>
                                 <p>Reviews</p>
                             </div>
                         </div>
@@ -48,7 +54,9 @@ export default class MessageContent extends Component {
                                 </svg>
                             </div>
                             <div className="float-right color-white text-right">
-                                <p>2</p>
+                                <p>
+                                    {getAverage}
+                                </p>
                                 <p>Average Scores</p>
                             </div>
                         </div>
@@ -58,3 +66,4 @@ export default class MessageContent extends Component {
         );
     }
 }
+export default MessageContent;
